@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* BACKGROUND */
+/* 🎬 CINEMATIC BACKGROUND */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+
+  background: url("images/background.jpg") no-repeat center/cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+/* DARK OVERLAY */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.9)
+  );
+  z-index: -1;
+}
+
+/* LIGHT GLOW EFFECT */
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255,152,0,0.2), transparent);
+  z-index: -1;
+}
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  animation: fadeZoom 1.5s ease;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #f9c700, #ff5722);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* Animation */
+@keyframes fadeZoom {
+  from {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* CONTROLS */
+.album-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+.album-controls input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.album-controls button {
+  padding: 10px 15px;
+  background: orange;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ALBUMS */
+.album-list {
+  text-align: center;
+}
+
+.album {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.album.active {
+  background: orange;
+  color: black;
+}
+
+/* UPLOAD */
+.upload-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.upload-btn {
+  padding: 10px 20px;
+  background: orange;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* GALLERY */
+/* ✅ GALLERY GRID (SIDE BY SIDE) */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+/* ✅ GALLERY ITEM */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+
+  /* makes all images equal size */
+  aspect-ratio: 1/1;
+}
+
+/* IMAGE */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+/* DARK OVERLAY ON HOVER */
+.gallery-item::after {
+  content: "✨ View";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  transition: 0.4s;
+}
+
+/* HOVER EFFECT */
+.gallery-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(70%);
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 80%;
+}
+
+.close, .prev, .next {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.close { top: 20px; right: 30px; }
+.prev { left: 20px; top: 50%; }
+.next { right: 20px; top: 50%; }
+/* GLASS EFFECT */
+.album, .upload-btn, .album-controls input {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* HOVER GLOW */
+.album:hover, .upload-btn:hover {
+  box-shadow: 0 0 15px rgba(255,152,0,0.5);
+  transform: translateY(-3px);
+}
+.lightbox img {
+  animation: cinematicZoom 0.4s ease;
+}
+
+@keyframes cinematicZoom {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cinematic Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>✨ Welcome to My Gallery</h1>
+  <p>Create Albums • Upload Memories</p>
+</section>
+
+<!-- ALBUM CREATE -->
+<div class="album-controls">
+  <input type="text" id="albumName" placeholder="Enter album name">
+  <button onclick="createAlbum()">Create Album</button>
+</div>
+
+<!-- ALBUM LIST -->
+<div class="album-list" id="albumList"></div>
+
+<!-- UPLOAD -->
+<div class="upload-container">
+  <label for="imageInput" class="upload-btn">+ Add Photos</label>
+  <input type="file" id="imageInput" accept="image/*" multiple hidden>
+</div>
+<div class="gallery" id="gallery">
+
+  <!-- Default Images from folder -->
+  <div class="gallery-item"><img src="images/img1.jpg"></div>
+  <div class="gallery-item"><img src="images/img2.jpg"></div>
+  <div class="gallery-item"><img src="images/img3.jpg"></div>
+  <div class="gallery-item"><img src="images/img4.jpg"></div>
+
+</div>
+
+<!-- GALLERY -->
+<div class="gallery" id="gallery"></div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <span class="prev">&#10094;</span>
+  <img id="lightbox-img">
+  <span class="next">&#10095;</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
